@@ -16,7 +16,7 @@ namespace JC.Productos.EN.Filtros
         public enum EnumTipoReporte
         {
             PDF = 1,
-            Exce = 2
+            Excel = 2
         }
     }
 }
