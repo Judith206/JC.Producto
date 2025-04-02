@@ -42,7 +42,7 @@ namespace JC.Productos.DAL
             modelBuilder.Entity<DetalleVenta>()
                 .HasOne(d => d.Producto)
                 .WithMany()
-                .HasForeignKey(d => d.ProductoId);
+                .HasForeignKey(d => d.IdProducto);
 
             // Configuración para relación Venta-Cliente
             modelBuilder.Entity<Venta>()

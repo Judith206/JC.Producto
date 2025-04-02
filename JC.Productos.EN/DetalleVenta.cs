@@ -19,7 +19,7 @@ namespace JC.Productos.EN
 
         [Required(ErrorMessage = "El producto es obligatorio")]
         [ForeignKey("Producto")]
-        public int ProductoId { get; set; }
+        public int IdProducto { get; set; }
 
         [Required(ErrorMessage = "La cantidad es obligatoria.")]
         [Range(1, int.MaxValue, ErrorMessage = "La cantidad debe ser al menos 1.")]

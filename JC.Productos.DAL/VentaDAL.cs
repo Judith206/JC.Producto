@@ -29,7 +29,7 @@ namespace JC.Productos.DAL
                 // Reducir stock de productos
                 foreach (var detalle in pVenta.DetalleVentas)
                 {
-                    var producto = await dbContext.Productos.FirstOrDefaultAsync(p => p.Id == detalle.ProductoId);
+                    var producto = await dbContext.Productos.FirstOrDefaultAsync(p => p.Id == detalle.IdProducto);
                     if (producto != null)
                     {
                         producto.CantidadDisponible -= detalle.Cantidad;
@@ -53,7 +53,7 @@ namespace JC.Productos.DAL
                 // Devolver el stock de los productos vendidos
                 foreach (var detalle in venta.DetalleVentas)
                 {
-                    var producto = await dbContext.Productos.FirstOrDefaultAsync(p => p.Id == detalle.ProductoId);
+                    var producto = await dbContext.Productos.FirstOrDefaultAsync(p => p.Id == detalle.IdProducto);
                     if (producto != null)
                     {
                         producto.CantidadDisponible += detalle.Cantidad;

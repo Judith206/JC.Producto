@@ -122,16 +122,21 @@ namespace JC.Productos.AppWeb.Controllers
 
                 hojaExcel.Cells["A1"].Value = "Nombre";
                 hojaExcel.Cells["B1"].Value = "Dirección";
+                hojaExcel.Cells["C1"].Value = "Telefono";
+                hojaExcel.Cells["D1"].Value = "Email";
 
                 int row = 2;
                 foreach (var cliente in clientes)
                 {
                     hojaExcel.Cells[row, 1].Value = cliente.Nombre;
                     hojaExcel.Cells[row, 2].Value = cliente.Direccion;
+                    hojaExcel.Cells[row, 3].Value = cliente.Telefono;
+                    hojaExcel.Cells[row, 4].Value = cliente.Email;
+
                     row++;
                 }
 
-                hojaExcel.Cells["A:B"].AutoFitColumns();
+                hojaExcel.Cells["A:D"].AutoFitColumns();
 
                 var stream = new MemoryStream();
                 package.SaveAs(stream);
@@ -163,6 +168,8 @@ namespace JC.Productos.AppWeb.Controllers
                     {
                         var nombre = hojaExcel.Cells[row, 1].Text;
                         var direccion = hojaExcel.Cells[row, 2].Text;
+                        var telefono = hojaExcel.Cells[row, 3].Text;
+                        var email = hojaExcel.Cells[row, 4].Text;
 
                         if (string.IsNullOrEmpty(nombre))
                             continue;
@@ -170,7 +177,9 @@ namespace JC.Productos.AppWeb.Controllers
                         clientes.Add(new Cliente
                         {
                             Nombre = nombre,
-                            Direccion = direccion
+                            Direccion = direccion,
+                            Telefono = telefono,
+                            Email = email
                         });
                     }
                 }
