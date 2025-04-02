@@ -35,7 +35,16 @@
                 <td>@compra.Proveedor.Nombre</td>
                 <td>@compra.FechaCompra.ToShortDateString()</td>
                 <td>@compra.Total</td>
-                <td>@(compra.Estado == 1 ? "Activa" : "Anulada")</td>
+                <td>
+                    @if (compra.Estado == 1)
+                    {
+                        <span class="badge badge-success">Activa</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">Anulada</span>
+                    }
+                </td>
                 <td>
                     <a href="@Url.Action("Detalles", "Compra" , new {id = compra.Id})" class="btn btn-info">Ver Detalles</a>
                     @if (compra.Estado == 1)// solo mostrar el boton si la compra esta activa
@@ -43,6 +52,7 @@
                         <a href="@Url.Action("Anular", "Compra", new {id = compra.Id})" class="btn btn-danger">Anular</a>
                     }
                 </td>
+
             </tr>
         }
     </tbody>
