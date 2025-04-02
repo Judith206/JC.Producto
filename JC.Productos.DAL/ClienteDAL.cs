@@ -42,6 +42,8 @@ namespace JC.Productos.DAL
             {
                 cliente.Nombre = pCliente.Nombre;
                 cliente.Direccion = pCliente.Direccion;
+                cliente.Telefono = pCliente.Telefono;
+                cliente.Email = pCliente.Email;
 
                 dbContext.Update(cliente);
                 return await dbContext.SaveChangesAsync();
@@ -59,7 +61,9 @@ namespace JC.Productos.DAL
                 {
                     Id = cliente.Id,
                     Nombre = cliente.Nombre,
-                    Direccion = cliente.Direccion
+                    Direccion = cliente.Direccion,
+                    Telefono = cliente.Telefono,
+                    Email = cliente.Email
                 };
             }
             else
@@ -76,7 +80,9 @@ namespace JC.Productos.DAL
                 {
                     Id = c.Id,
                     Nombre = c.Nombre,
-                    Direccion = c.Direccion
+                    Direccion = c.Direccion,
+                    Telefono = c.Telefono,
+                    Email = c.Email
                 }));
                 return list;
             }

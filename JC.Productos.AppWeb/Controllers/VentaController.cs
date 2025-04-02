@@ -129,7 +129,7 @@ namespace JC.Productos.AppWeb.Controllers
             return RedirectToAction("Index");
         }
         
-
+        // excel 
         public async Task<IActionResult> ReporteVentasExcel(List<Venta> ventas)
         {
             using (var package = new ExcelPackage())

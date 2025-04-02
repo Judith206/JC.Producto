@@ -83,7 +83,7 @@ namespace JC.Productos.AppWeb.Controllers
         // POST: ClienteController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> EliminarCliente(int id)
         {
             try
             {
@@ -98,13 +98,13 @@ namespace JC.Productos.AppWeb.Controllers
         public async Task<ActionResult> ReporteClientes()
         {
             var clientes = await _clienteBL.ObtenerTodosAsync();
-            return new ViewAsPdf("rpClientes", clientes);
+            return new ViewAsPdf("rpCliente", clientes);
         }
 
         public async Task<IActionResult> GenerarReportePDF()
         {
             var clientes = await _clienteBL.ObtenerTodosAsync();
-            return new ViewAsPdf("rpClientes", clientes)
+            return new ViewAsPdf("rpCliente", clientes)
             {
                 FileName = "Reporte_Clientes.pdf",
                 PageOrientation = Rotativa.AspNetCore.Options.Orientation.Landscape,
